@@ -1,24 +1,108 @@
 /* =================================================================
-   5. フッターとナビゲーション（画面下部） - 変更箇所
+   1. リセットと基本設定
+   ================================================================= */
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Yu Gothic', 'Meiryo', sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+/* リンクのスタイル */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* リストのデフォルトスタイルを削除 */
+ul {
+    list-style: none;
+}
+
+/* =================================================================
+   2. レイアウトとコンテナ
+   ================================================================= */
+
+/* コンテンツを中央に配置し、最大幅を設定 */
+main, section, footer {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* =================================================================
+   3. ヘッダー (ナビゲーションなし)
+   ================================================================= */
+
+header {
+    background: #17a2b8; /* 海を連想させる青緑色 */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* h1を中央揃えにする */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* =================================================================
+   4. コンテンツ (セクション)
+   ================================================================= */
+
+section {
+    background-color: #fff;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: #dc3545;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffe0e6;
+    padding-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+/* =================================================================
+   5. フッターとナビゲーション（画面下部）
    ================================================================= */
 
 footer {
-    /* 変更: フッター全体に背景色を設定 */
-    background-color: #e9ecef; /* 明るいグレーの背景色 */
     border-top: 1px solid #ddd;
     text-align: center;
     padding: 20px 0;
-    color: #555; /* コピーライトの文字色を少し濃くする */
+    color: #777;
     font-size: 0.9rem;
 }
 
 /* フッター内のナビゲーション（リンクを横並びにする） */
 .footer-nav ul {
     display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    padding: 10px 0; /* 上下にパディングを追加して視覚的な区切りを設ける */
-    border-bottom: 1px solid #ddd; /* ナビとコピーライトの間に線を入れる */
+    justify-content: center; /* リンクを中央に配置 */
+    margin-bottom: 15px; /* コピーライトとの間にスペース */
 }
 
 .footer-nav li {
@@ -26,24 +110,15 @@ footer {
 }
 
 .footer-nav a {
-    /* 変更: リンクの文字色を濃く、目立つようにする */
-    color: #007bff; 
-    font-weight: 700; /* 太字にして目立たせる */
-    padding: 8px 15px;
+    color: #17a2b8; /* フッターのリンク色 */
+    font-weight: 600;
+    padding: 5px 10px;
     border-radius: 5px;
-    transition: all 0.3s ease;
-    
-    /* リンクに薄い背景色を追加して視認性を高める */
-    background-color: #ffffff; 
-    border: 1px solid #cce5ff; /* 薄い青の枠線 */
-    display: inline-block; /* パディングと枠線が適用されるように */
+    transition: background-color 0.3s ease;
 }
 
 .footer-nav a:hover {
-    /* 変更: ホバー時の背景色をより強調する */
-    background-color: #007bff; /* メインカラーを背景に */
-    color: #ffffff; /* 文字色を白に */
-    border-color: #007bff;
+    background-color: #e9ecef;
     text-decoration: none;
 }
 
@@ -53,18 +128,29 @@ footer {
    ================================================================= */
 
 @media (max-width: 768px) {
-    /* ... (他のモバイル設定はそのまま) ... */
-
-    .footer-nav a {
-        padding: 5px 10px; /* モバイルではボタンを少し小さく */
-        font-weight: 600;
-    }
-
-    .footer-nav ul {
-        flex-wrap: wrap; 
-        padding: 5px 0;
+    
+    header h1 {
+        font-size: 1.5rem;
     }
     
+    /* セクションのパディングを調整 */
+    section {
+        padding: 25px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    /* モバイルでのフッターナビゲーション */
+    .footer-nav ul {
+        flex-wrap: wrap; /* 画面が狭い場合は折り返す */
+    }
+
     .footer-nav li {
         margin: 5px 10px;
     }
