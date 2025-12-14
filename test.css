@@ -2,24 +2,22 @@
    1. リセットと基本設定
    ================================================================= */
 * {
-    /* 標準的なボックスサイズモデルを使用 */
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
 
 body {
-    /* ベースフォントと行の高さ */
     font-family: 'Yu Gothic', 'Meiryo', sans-serif;
     line-height: 1.7;
     color: #333;
-    background-color: #f8f8f8; /* わずかに灰色がかった背景 */
+    background-color: #f8f8f8;
     min-height: 100vh;
 }
 
 /* リンクのスタイル */
 a {
-    color: #007bff; /* メインカラー */
+    color: #007bff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -46,7 +44,7 @@ main, section, footer {
 }
 
 /* =================================================================
-   3. ヘッダーとナビゲーション
+   3. ヘッダー (ナビゲーションなし)
    ================================================================= */
 
 header {
@@ -54,41 +52,12 @@ header {
     color: #fff;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between; /* 要素を両端に配置 */
-    align-items: center;
-    width: 90%; /* ヘッダー内のコンテンツもコンテナ幅に合わせる */
-    max-width: 1000px;
-    margin: 0 auto;
+    text-align: center; /* h1を中央揃えにする */
 }
 
 header h1 {
     font-size: 1.8rem;
     font-weight: 700;
-}
-
-nav ul {
-    display: flex; /* ナビゲーションリンクを横並びにする */
-}
-
-nav li {
-    margin-left: 20px;
-}
-
-nav a {
-    color: #fff;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* ホバー時の背景色 */
-    text-decoration: none;
 }
 
 /* =================================================================
@@ -100,25 +69,25 @@ section {
     padding: 40px;
     margin-bottom: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 柔らかな影 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 section h2 {
-    color: #dc3545; /* アクセントカラー (リゾート感を出す赤) */
+    color: #dc3545;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    border-bottom: 3px solid #ffe0e6; /* タイトルの下に区切り線 */
+    border-bottom: 3px solid #ffe0e6;
     padding-bottom: 10px;
 }
 
 section p {
     margin-bottom: 15px;
-    text-align: justify; /* テキストを両端揃えに */
+    text-align: justify;
 }
 
 
 /* =================================================================
-   5. フッター
+   5. フッターとナビゲーション（画面下部）
    ================================================================= */
 
 footer {
@@ -129,6 +98,30 @@ footer {
     font-size: 0.9rem;
 }
 
+/* フッター内のナビゲーション（リンクを横並びにする） */
+.footer-nav ul {
+    display: flex;
+    justify-content: center; /* リンクを中央に配置 */
+    margin-bottom: 15px; /* コピーライトとの間にスペース */
+}
+
+.footer-nav li {
+    margin: 0 15px;
+}
+
+.footer-nav a {
+    color: #17a2b8; /* フッターのリンク色 */
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+}
+
 
 /* =================================================================
    6. レスポンシブデザイン (モバイル向け調整)
@@ -136,24 +129,8 @@ footer {
 
 @media (max-width: 768px) {
     
-    /* ヘッダーのレイアウトを縦積みに変更 */
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
     header h1 {
-        margin-bottom: 10px;
-    }
-
-    /* ナビゲーションリンクを中央揃えに */
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap; /* 画面が狭い場合は折り返す */
-    }
-
-    nav li {
-        margin: 0 10px 5px 10px;
+        font-size: 1.5rem;
     }
     
     /* セクションのパディングを調整 */
@@ -167,5 +144,14 @@ footer {
 
     body {
         font-size: 15px;
+    }
+
+    /* モバイルでのフッターナビゲーション */
+    .footer-nav ul {
+        flex-wrap: wrap; /* 画面が狭い場合は折り返す */
+    }
+
+    .footer-nav li {
+        margin: 5px 10px;
     }
 }
